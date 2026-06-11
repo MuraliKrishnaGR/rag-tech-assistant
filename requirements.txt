@@ -1,0 +1,11 @@
+groq
+langchain 
+langchain-groq
+langchain-cohere
+langchain-chroma
+langchain-community
+langgraph
+fastapi
+pandas
+openpyxl
+python-dotenv
