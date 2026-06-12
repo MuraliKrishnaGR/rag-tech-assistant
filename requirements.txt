@@ -4,8 +4,12 @@ langchain-groq
 langchain-cohere
 langchain-chroma
 langchain-community
+langchain-text-splitters
 langgraph
 fastapi
 pandas
 openpyxl
 python-dotenv
+beautifulsoup4
+lxml
+psycopg2-binary
