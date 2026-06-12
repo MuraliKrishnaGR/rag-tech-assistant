@@ -15,7 +15,7 @@ llm = ChatGroq(
 
 # ── Embeddings ────────────────────────────────────────────────────────────────
 embeddings = CohereEmbeddings(
-    model="embed-english-v3.0",
+    model="embed-v4.0",
     cohere_api_key=os.getenv("COHERE_API_KEY"),
 )
 
@@ -32,4 +32,10 @@ vectorstore = Chroma(
     client=chroma_client,
     collection_name="rag_docs",
     embedding_function=embeddings,
+)
+
+
+retriever = vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 5}
 )
