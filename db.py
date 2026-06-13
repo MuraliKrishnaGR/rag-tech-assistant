@@ -21,15 +21,26 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ── Connection Pool ────────────────────────────────────────────────────────────
-connection_pool = pool.SimpleConnectionPool(
-    minconn=1,
-    maxconn=10,
-    host=os.getenv("DB_HOST", "localhost"),
-    dbname=os.getenv("DB_NAME", "rag_assistant"),
-    user=os.getenv("DB_USER", "postgres"),
-    password=os.getenv("DB_PASSWORD", "password"),
-    port=int(os.getenv("DB_PORT", 5432)),
-)
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if DATABASE_URL:
+    # Neon / production
+    connection_pool = pool.SimpleConnectionPool(
+        minconn=1,
+        maxconn=10,
+        dsn=DATABASE_URL,
+    )
+else:
+    # Local PostgreSQL / development
+    connection_pool = pool.SimpleConnectionPool(
+        minconn=1,
+        maxconn=10,
+        host=os.getenv("DB_HOST", "localhost"),
+        dbname=os.getenv("DB_NAME", "rag_assistant"),
+        user=os.getenv("DB_USER", "postgres"),
+        password=os.getenv("DB_PASSWORD", "password"),
+        port=int(os.getenv("DB_PORT", 5432)),
+    )
 
 
 def get_connection():
