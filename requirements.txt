@@ -13,3 +13,4 @@ python-dotenv
 beautifulsoup4
 lxml
 psycopg2-binary
+streamlit
