@@ -19,7 +19,6 @@ Built with **LangGraph**, **FastAPI**, and **Streamlit**.
 - [Example API Requests and Responses](#example-api-requests-and-responses)
 - [Thought Process and Architecture Reasoning](#thought-process-and-architecture-reasoning)
 - [Document Corpus](#document-corpus)
-- [Assumptions](#assumptions)
 - [Design Decisions and Tradeoffs](#design-decisions-and-tradeoffs)
 - [Chunking and Embedding Strategy](#chunking-and-embedding-strategy)
 - [What I Would Improve With More Time](#what-i-would-improve-with-more-time)
