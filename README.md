@@ -34,9 +34,13 @@ The system accepts a natural language question, retrieves the most relevant chun
 
 ## Architecture
 
+<<<<<<< Updated upstream
 ![Architecture Diagram](architecture.png)
 
 > Full architecture diagram. See `architecture.drawio` to edit.
+=======
+![Architecture Diagram](architecture.drawio.png)
+>>>>>>> Stashed changes 
 
 ---
 
