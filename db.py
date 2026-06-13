@@ -240,7 +240,27 @@ def get_user_sessions(user_id: str) -> list[dict]:
             return cur.fetchall()
     finally:
         release_connection(conn)
-
+        
+def delete_session(session_id: str) -> bool:
+    """
+    Delete a conversation session and its full history.
+    Returns True if deleted, False if session not found.
+    """
+    conn = get_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "DELETE FROM messages WHERE session_id = %s",
+                (session_id,)
+            )
+            deleted = cur.rowcount > 0
+        conn.commit()
+        return deleted
+    except Exception as e:
+        conn.rollback()
+        raise
+    finally:
+        release_connection(conn)
 
 # ── Feedback Helpers ───────────────────────────────────────────────────────────
 
